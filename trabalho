@@ -1,0 +1,23 @@
+Atividade:
+
+Criar module chamado “Fraud”;
+
+Adicionar spring starter web no Pom;
+
+Criar classe main chamada FraudApplication, e trona-la uma SpringBootAplication;
+
+Criar application.yml e mudar porta para 8091
+
+Adicionar spring-data-jpa no POM
+
+Criar entidade chamada FraudCheckHistory com atributos id, customerId, isFraudster e createdAt
+
+Criar repository para FraudCheckHistory usando JPA
+
+Criar service chamado FraudCheckService com método boolean isFraudulentCustomer(Integer customerId)
+
+O método deve inserir na base de dados um FraudCheckHistory. P.S: no momento pode setar como false o atributo isFraudster de todas as consultas e retornar sempre false;
+
+Criar o controller para acessar esse método atravez de um Get que recebe como PathVariable o customerId;
+
+Criar service postgres para mongoDB e conectar o module Fraud com ele
