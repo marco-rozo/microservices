@@ -16,7 +16,6 @@ public class FraudCheckHistory {
 
     @MongoId
     private String id;
-
     private Integer customerId;
     private Boolean isFraudster;
     private LocalDateTime createdAt;
