@@ -4,15 +4,29 @@ server:
 spring:
   application:
     name: customer
+    config:
+      uri: http://localhost:8090
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+           localhost[0]:
+            uri: http://localhost:8092
+
   datasource:
     url: jdbc:postgresql://localhost:5433/customer
     username: root
     password: root
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+
+customer:
+  fraud:
+    name: http://localhost:8092/

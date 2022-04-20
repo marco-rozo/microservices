@@ -3,7 +3,8 @@ package br.edu.utfpr;
 import org.springframework.stereotype.Service;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+public record CustomerService(CustomerRepository customerRepository,
+                              FraudClient fraudClient) {
     public void registerCustomer(CustomerRegistrationRequest customerRequest) {
         Customer customer = Customer.builder()
                 .firstName(customerRequest.firstName())
@@ -12,8 +13,13 @@ public record CustomerService(CustomerRepository customerRepository) {
                 .build();
         // TODO: check if email valid
         // TODO: check if email not taken
-        // TODO: check if fraudster
-        customerRepository.save(customer);
+        customerRepository.saveAndFlush(customer);
+        FraudCheckResponse checkFraudResult
+                = fraudClient.checkFraud(customer.getId());
+        assert checkFraudResult != null;
+        if (checkFraudResult.isFraudster()) {
+            throw new IllegalStateException("Fraudster");
+        }
         // TODO: send notification
     }
 

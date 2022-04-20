@@ -11,7 +11,7 @@
 
   <modules>
     <module>customer</module>
-      <module>fraud</module>
+    <module>fraud</module>
   </modules>
 
   <name>microservices-teach</name>
@@ -59,7 +59,6 @@
           <artifactId>spring-boot-maven-plugin</artifactId>
           <version>${spring.boot.maven.plugin.version}</version>
         </plugin>
-
       </plugins>
     </pluginManagement>
   </build>
