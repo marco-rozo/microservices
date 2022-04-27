@@ -12,6 +12,7 @@
   <modules>
     <module>customer</module>
     <module>fraud</module>
+    <module>eureka-server</module>
   </modules>
 
   <name>microservices-teach</name>
@@ -20,8 +21,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
-    <spring.boot.maven.plugin.version>2.6.4</spring.boot.maven.plugin.version>
-    <spring.boot.depencencies.version>2.6.4</spring.boot.depencencies.version>
+    <spring.boot.maven.plugin.version>2.5.3</spring.boot.maven.plugin.version>
+    <spring.boot.depencencies.version>2.5.3</spring.boot.depencencies.version>
+    <spring.cloud-version>2020.0.3</spring.cloud-version>
   </properties>
 
   <dependencyManagement>
@@ -32,6 +34,13 @@
         <version>${spring.boot.depencencies.version}</version>
         <scope>import</scope>
         <type>pom</type>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud-version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>

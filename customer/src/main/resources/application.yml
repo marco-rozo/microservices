@@ -4,16 +4,6 @@ server:
 spring:
   application:
     name: customer
-    config:
-      uri: http://localhost:8090
-  cloud:
-    discovery:
-      client:
-        simple:
-          instances:
-           localhost[0]:
-            uri: http://localhost:8092
-
   datasource:
     url: jdbc:postgresql://localhost:5433/customer
     username: root
@@ -26,7 +16,23 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+  cloud:
+    discovery:
+      client:
+        simple:
+          instances:
+            localhost:
+              0:
+                uri: http://localhost:8092
+
 
 customer:
   fraud:
-    name: http://localhost:8092/
+    url: http://FRAUD/
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
