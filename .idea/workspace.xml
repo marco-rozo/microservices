@@ -391,9 +391,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.FraudApplication" />
-        <item itemvalue="Spring Boot.CustomerApplication" />
         <item itemvalue="Spring Boot.MessagingApplication" />
+        <item itemvalue="Spring Boot.CustomerApplication" />
+        <item itemvalue="Spring Boot.FraudApplication" />
         <item itemvalue="Spring Boot.EurekaServerApplication" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
@@ -415,7 +415,7 @@
       <workItem from="1652623278540" duration="440000" />
       <workItem from="1652623896932" duration="4362000" />
       <workItem from="1652636056530" duration="71000" />
-      <workItem from="1652645749650" duration="5079000" />
+      <workItem from="1652645749650" duration="6024000" />
     </task>
     <servers />
   </component>

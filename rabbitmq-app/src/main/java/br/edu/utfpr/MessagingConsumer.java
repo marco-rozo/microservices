@@ -1,6 +1,7 @@
 package br.edu.utfpr;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 //@Component: O consumer deve ser um bean mapeado no Spring, por isso anotado como componente;
 @Component
 @Slf4j
+@EnableRabbit
 public class MessagingConsumer {
 
     // Para consumir a fila, a dependência do spring-boot-starter-amqp,
@@ -20,6 +22,7 @@ public class MessagingConsumer {
     //@Payload: É a anotação que informa que o parâmetro vai receber o corpo da mensagem.
     //Observação: não é obrigatório quando tem apenas um parâmetro.
     public void receive(@Payload String order) {
-        log.info("Order: " + order);
+        System.out.println("Recebendo mensagem" + order);
+        log.info("Message receiver: " + order);
     }
 }
