@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/customer/customer.iml" filepath="$PROJECT_DIR$/customer/customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fraud/fraud.iml" filepath="$PROJECT_DIR$/fraud/fraud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices-teach.iml" filepath="$PROJECT_DIR$/microservices-teach.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rabbitmq-app.iml" filepath="$PROJECT_DIR$/rabbitmq-app.iml" />
+    </modules>
+  </component>
+</project>

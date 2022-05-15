@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="customer" target="17" />
+      <module name="eureka-server" target="17" />
+      <module name="fraud" target="17" />
+      <module name="microservices-teach" target="17" />
+      <module name="rabbitmq-app" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
