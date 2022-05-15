@@ -35,15 +35,28 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
-      - 27017:27017
+      - 27018:27017
     volumes:
       - mongodb_data_container:/data/db
 
+  rabbitmq3:
+    container_name: "rabbitmq"
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=mqadmin
+      - RABBITMQ_DEFAULT_PASS=mqadmin
+    ports:
+      - 5672:5672
+      - 15672:15672
+
 networks:
   postgres:
+    driver: bridge
+  rabbitmq:
     driver: bridge
 
 volumes:
   postgres:
   pgadmin:
   mongodb_data_container:
+  rabbitmq:

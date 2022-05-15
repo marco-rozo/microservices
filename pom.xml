@@ -13,6 +13,7 @@
     <module>customer</module>
     <module>fraud</module>
     <module>eureka-server</module>
+    <module>rabbitmq-app</module>
   </modules>
 
   <name>microservices-teach</name>
