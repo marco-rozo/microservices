@@ -10,10 +10,10 @@ spring:
       username: root
       password: rootpassword
       database: fraud
-      port: 27018
-      host: localhost
+      port: 27017
+      host: mongodb
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: mqadmin
     password: mqadmin
@@ -21,6 +21,6 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
     register-with-eureka: true
     fetch-registry: true

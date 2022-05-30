@@ -1,0 +1,19 @@
+mvn clean install
+
+cd customer
+docker build -t microservices/customer .
+
+cd ..
+cd eureka-server
+docker build -t microservices/eureka-server .
+
+cd ..
+cd fraud
+docker build -t microservices/fraud .
+
+cd ..
+cd rabbitmq-app
+docker build -t microservices/notification .
+
+cd ..
+docker compose up -d

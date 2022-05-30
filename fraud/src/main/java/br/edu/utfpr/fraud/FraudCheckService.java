@@ -31,7 +31,7 @@ public class FraudCheckService {
         // exchange, routingKey e message, onde são o interceptador da mensagem (direcionando para uma fila),
         // nome da fila e a mensagem a ser enviada.
         // A cada chamada do método send, será enviado uma mensagem para fila.
-        rabbitTemplate.convertAndSend(ConstantsRabbitMQ.EXCHANGE, ConstantsRabbitMQ.ROUTING_KEY + customerId, "Cliente fraudulento recebido, identificador: " + customerId);
+        rabbitTemplate.convertAndSend(ConstantsRabbitMQ.EXCHANGE, ConstantsRabbitMQ.ROUTING_KEY, "Cliente fraudulento recebido, identificador: " + customerId);
         return false;
     }
 
