@@ -84,6 +84,75 @@ services:
     networks:
       - microservices
 
+  storage:
+    image: ghcr.io/openzipkin/zipkin-mysql:latest
+    container_name: mysql
+    networks:
+      - microservices
+    ports:
+      - 3307:3306
+
+  zipkin:
+    image: ghcr.io/openzipkin/zipkin-slim:latest
+    container_name: zipkin
+    environment:
+      - STORAGE_TYPE=mem
+      - MYSQL_HOST=mysql
+    ports:
+      - 9411:9411
+    depends_on:
+      - storage
+    networks:
+      - microservices
+
+  dependencies:
+    image: openzipkin/zipkin-dependencies
+    container_name: dependencies
+    entrypoint: crond -f
+    environment:
+      - STORAGE_TYPE=mysql
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=zipkin
+      - MYSQL_PASS=zipkin
+    depends_on:
+      - storage
+    networks:
+      - microservices
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - 9090:9090
+    depends_on:
+      - storage
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - microservices
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - 3000:3000
+    depends_on:
+      - prometheus
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+    networks:
+      - microservices
+
+  setup_grafana_datasource:
+    image: appropriate/curl
+    container_name: setup_grafana_datasource
+    depends_on:
+      - grafana
+    volumes:
+      - ./prometheus/create-datasource-and-dashboard.sh:/create.sh
+    command: /create.sh
+
 networks:
   postgres:
     driver: bridge
