@@ -24,6 +24,8 @@ spring:
             localhost:
               0:
                 uri: http://fraud-application:8092
+  zipkin:
+    baseUrl: http://zipkin:9411
 
 
 customer:

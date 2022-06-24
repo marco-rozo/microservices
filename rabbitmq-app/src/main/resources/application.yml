@@ -4,3 +4,6 @@ spring:
     port: 5672
     username: mqadmin
     password: mqadmin
+  zipkin:
+    enabled: true
+    baseUrl: http://zipkin:9411
